@@ -10,32 +10,31 @@ This repository is code for the paper
 
 - python 3.6
 - Anaconda
+- gym
 - tmux
 - tqdm
-- pyyaml
-- tensorflow==1.13.1
 - tmuxp
 - numpy
-- matplotlib
+- pyyaml
 - mujoco_py
-- gym
+- matplotlib
+- tensorflow==1.13.1
 
 # Instructions
 
 ##### For automatic running this code in parallel, you may firstly install tmux and Anaconda. You have access to pretrain expert models on different dynamics mismatch from [Google Drive](https://drive.google.com/drive/folders/1276_TJfClnhz3rDaLkUTsQML1pqRK3-O?usp=sharing).
 
 ```bash
-sudo apt-get install tmux
-
 # Preparations:
+sudo apt-get install tmux
 conda create -n your_venv python=3.6
 source activate your_venv
 pip install -r requirements.txt
 
-# For a minimum running you can run the following command: 
+# For a minimum running, you can run the following command: 
 python main.py --process_num 5 --env_list "Walker2d-v2" --variety_list "0.5" --transfer_type "gravity"
 
-# For customized running you can modify generate_tmux_config.py and execute:
+# For customized running, you can modify generate_tmux_config.py and run:
 python generate_tmux_config.py --conda_name your_venv
 tmuxp load run_all.yaml
 ```
